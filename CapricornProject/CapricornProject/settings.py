@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'TimeSheetsApp',
+    'ManagerApp',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -122,7 +124,18 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     "TimeSheetsApp/static",
+
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Rendering Formats
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ]
+        
+
+}
 

@@ -12,7 +12,7 @@ class TimesheetTable(models.Model):
 
 
     def __str__(self) -> str:
-        return self.your_Name
+        return self.your_Name +'-'+self.project_Name
 
 
 

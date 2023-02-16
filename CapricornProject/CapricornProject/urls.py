@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('TimeSheetsApp.urls')),
+    path('api/manager/', include('ManagerApp.urls')),
 ]
