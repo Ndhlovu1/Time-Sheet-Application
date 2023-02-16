@@ -24,6 +24,10 @@ https://www.azuredevopslabs.com/labs/vstsextend/python/#exercise-1-examine-the-s
 
 ```
 
+Go to VsCode and Install
+
+GitHub Pull Requests and Issues
+Github CodeSpaces
 
 
 
