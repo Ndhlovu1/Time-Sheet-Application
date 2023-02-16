@@ -29,6 +29,15 @@ Go to VsCode and Install
 GitHub Pull Requests and Issues
 Github CodeSpaces
 
+Install Git
+
+_______________________________________
+
+
+
+
+
+
 
 
 
