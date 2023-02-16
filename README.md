@@ -1,7 +1,13 @@
 # Capricorn Hackathon - Notes
+https://getbootstrap.com/docs/5.2/components/carousel/
+https://getbootstrap.com/docs/5.2/examples/carousel/
+
+Download and edit the template,
+Download Capricorn Group Logos
 
 
 ´´´
+
 Web Application -> 
 Api -> RestFramework
 Database -> 
