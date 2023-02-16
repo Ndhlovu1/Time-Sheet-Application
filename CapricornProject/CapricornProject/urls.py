@@ -15,9 +15,48 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.authtoken.views import obtain_auth_token
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('TimeSheetsApp.urls')),
     path('api/manager/', include('ManagerApp.urls')),
+    path('auth/',include('djoser.urls')),
+    path('auth/', include('djoser.urls.authtoken')),
+    path('api-token-auth/', obtain_auth_token),
+    
 ]
+
+"""
+Successfully Allows User Self Registration
+http://localhost:8000/auth/users/ works successfully
+
+Allows users to be added to a group(Managers)
+http://localhost:8000/api/groups/manager/users
+
+"""
+
+
+
+#Djoser Handy endpoints
+"""
+
+/users/
+/users/me/
+/users/confirm/
+/users/resend_activation/
+/users/set_password/
+/users/reset_password/
+/users/reset_password_confirm/
+/users/set_username/
+/users/reset_username/
+/users/reset_username/confirm/
+/token/login/
+/token/logout/
+
+to access them -> localhost:8000/auth infront of this url
+
+
+
+"""
