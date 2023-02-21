@@ -8,30 +8,170 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=§, initial-scale=1.0">
   <title>Time Sheet</title>
+
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+    rel="stylesheet"
+    />
+
 </head>
 <body>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   
-  <section>
-    <article>
-      <!-- Add your code in the line below  -->
-      <h1> <!--Add title here --> </h1>
-      <h1>Submit Your Time Sheet</h1>
-  
-      <!--Begin row-->
-      <div class="row">
-        <!--Begin col-->
-        <div class="column">
-          <form action="" method="post">
-            {% csrf_token %}
-            {{form.as_p}}
-            <input type="submit" id="button">
-          </form>
-        </div>
-        <!--End col-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+          <!-- Image to handle the expansion -->
+          <button
+              class="navbar-toggler"
+              type="button"
+              data-mdb-toggle="collapse"
+              data-mdb-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation" >
+              <i class="fas fa-bars"></i>
+          </button>
 
-    </article>
-</section>  
-{% endblock %}
+          <!-- WRAPPER FOR SMALLER SCREENS -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+              <div class="navbar-brand"> 
+                <img src="data:image/png;base64,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" 
+                  alt="logo" 
+                  height="90"
+                  loading="lazy"
+                  
+                  />
+              </div>
+
+                 <!-- Nav Items  -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link h4" href="/"><h5>SUBMIT</h5></a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link  h4" href="submissions/"><h5>TIMESHEETS</h5></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link  h4" href="admin/"><h5>ADMIN</h5></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link  h4" href="api/manager/"><h5>MANAGEMENT</h5></a>
+                    </li>
+
+    
+                </ul>
+  
+
+          </div>
+
+          <!-- Contact Icons -->
+          <div class="d-flex align-items-center">
+              <a
+                  class="btn btn-dark px-3 "
+                  href="https://www.facebook.com/CapricornGroupLimited/"
+                  target=”_blank”
+                  role="button" style="margin: 10px;">
+                  <i class="fa-brands fa-facebook fa-2x" ></i>
+              </a>
+
+              <a
+                  class="btn btn-primary px-3"
+                  href=""
+                  target=”_blank”
+                  role="button" style="margin: 10px;">
+                  <i class="fab fa-linkedin fa-2x"></i>
+              </a>
+
+              <a
+                  class="btn btn-info px-3"
+                  href="https://twitter.com/GroupCapricorn"
+                  target=”_blank”
+                  role="button" style="margin: 10px;">
+                  <i class="fab fa-twitter fa-2x"><!-- <small> twitter</small> --></i>
+              </a>
+          </div>
+          
+      </div>
+  </nav>
+
+     <!-- Header Settings -->
+    
+
+
+      <div class="container">
+          
+          <!--Image Container-->
+            
+            </div>
+                       
+                  <div class="card text-center" style=" margin: 50px;">
+                      
+                          <!-- Add your code in the line below  -->
+                      
+                     <div class="form-inline" style="margin: 10px; width: fit-content;">
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                              <form action="" method="post">  
+                                                              
+                                    {% csrf_token %}
+                                    {{form.as_p}}
+                                 
+                                 
+                                <input class="btn btn-danger" type="submit" id="button">
+                              </div>
+
+
+                              </form>
+                            
+                            </div>
+                          </div>
+                        </div>
+                              <!--End col-->
+                          </div>
+                </div>
+              </div>
+            </div>
+            </div>
+
+              <!-- Footer Section -->
+
+        <div class="container" style="margin-top: 25;">
+          <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+              <div class="col mb-3">
+                  <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                    
+                      <img src="https://th.bing.com/th/id/OIP.F2emo8pvEmPNkWdtd_PlHgAAAA?pid=ImgDet&rs=1" 
+                     
+                      alt="logo" 
+                      height="100"
+                      loading="lazy"                  
+                      />
+                  </a>
+              </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+              <p class="text-muted">Capricon Group, Phoenix &copy; 2023</p>
+          </ul>
+          </footer>
+          </div>
+      </div>
+      {% endblock %}
 </body>
 </html>
 

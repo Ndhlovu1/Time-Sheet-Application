@@ -8,7 +8,7 @@ class TimesheetTable(models.Model):
     your_employee_Id = models.SmallIntegerField(default=10)
     start_date = models.DateField()
     end_date = models.DateField()
-    days_taken_to_finish = models.IntegerField(null=False)
+    hours_to_finish = models.IntegerField(null=False)
 
 
     def __str__(self) -> str:

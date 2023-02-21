@@ -79,8 +79,20 @@ WSGI_APPLICATION = 'CapricornProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME' : 'CapricornHackathonDb',
+        'HOST' : '127.0.0.1',
+        'PORT' : '3306',
+        'USER' : 'phoenixGp',
+        'PASSWORD': '', 
+        'OPTIONS': {  
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
+            }  
+
+
+
     }
 }
 
@@ -150,7 +162,7 @@ REST_FRAMEWORK = {
     #Slow down the amount of times a user can query a particular API
     'DEFAULT_THROTTLE_RATES':{
         'anon':'2/minute',
-        'user':'5/minute',
+        'user':'10/minute',
     }
 }
 

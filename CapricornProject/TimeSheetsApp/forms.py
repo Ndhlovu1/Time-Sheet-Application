@@ -6,7 +6,7 @@ from .models import TimesheetTable
 class TimeSheetEntryForm(forms.ModelForm):
     class Meta:
         model = TimesheetTable
-        fields = ['project_Name', 'your_Name','your_employee_Id','start_date', 'end_date','days_taken_to_finish']
+        fields = ['project_Name', 'your_Name','your_employee_Id','start_date', 'end_date','hours_to_finish']
 
         widgets = {
                     'start_date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
