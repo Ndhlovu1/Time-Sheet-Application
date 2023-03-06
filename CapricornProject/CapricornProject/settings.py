@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'djoser',
     'TimeSheetsApp',
     'ManagerApp',
-    'rest_framework'
+    'rest_framework',
+    'blogApp',
 ]
 
 MIDDLEWARE = [
@@ -90,8 +91,6 @@ DATABASES = {
         'OPTIONS': {  
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
             }  
-
-
 
     }
 }
@@ -169,4 +168,8 @@ REST_FRAMEWORK = {
 DJOSER = {
     "USER_ID_FIELD":"username",
 }
+
+#Email TEST SETUP
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
