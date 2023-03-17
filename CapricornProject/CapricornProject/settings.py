@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'ManagerApp',
     'rest_framework',
     'blogApp',
+    'taggit',
 ]
 
 MIDDLEWARE = [

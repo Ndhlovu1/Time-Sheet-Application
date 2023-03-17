@@ -9,6 +9,9 @@ djangorestframework = "*"
 djoser = "*"
 djangorestframework-simplejwt = "*"
 mysqlclient = "*"
+django-taggit = "==1.2.0"
+markdown = "==3.2.1"
+psycopg2-binary = "==2.8.4"
 
 [dev-packages]
 

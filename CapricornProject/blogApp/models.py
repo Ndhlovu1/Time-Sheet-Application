@@ -2,6 +2,9 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
+from taggit.managers import TaggableManager
+
+
 
 #Create your own custom Model Manager to pull 
 class PublishedManager(models.Manager):
@@ -37,6 +40,9 @@ class Post(models.Model):
                 self.slug
             ]
         )
+    
+    #Tags for the blog
+    tags = TaggableManager()
 
 
     class Meta:
@@ -104,4 +110,94 @@ class Comment(models.Model):
 
 
 
+"""
+58
 
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04
+Install Postgresql on the terminal 
+
+sudo apt-get install postgresql postgresql-contrib -y
+
+THEN INSTALL THE ADAPTER ONTO THE ENVIRONMENT
+pipenv install psycopg2-binary==2.8.4
+
+THEN CREATE A SUPER USER FOR YOUR Postgre Db
+
+sudo -i -u postgres
+psql -> access shell
+postgres=# \q -> to exit out
+
+Switch the user in one line
+sudo -u postgres psql
+
+\q to exit
+
+# TO USE SUDO INSTEAD -> sudo -u postgres createuser --interactive
+
+it will be :
+
+Name = 
+Role =
+That's it = 
+
+man createuser
+
+#Creating a new Database = sudo -u postgres createdb sammy
+
+#Create a matching Linux user with same name as the post gre account 
+
+sudo adduser sammy
+#Switch over and switch the db with it
+
+sudo -u sammy psql
+
+#Different db connection
+psql -d postgres
+
+#User connection \conninfo
+
+#Creating and Deleting Tables
+
+CREATE TABLE table_name (
+    column_name1 col_type (field_length) column_constraints,
+    column_name2 col_type (field_length),
+    column_name3 col_type (field_length)
+);
+
+#WORK
+CREATE TABLE playground (
+    equip_id serial PRIMARY KEY,
+    type varchar (50) NOT NULL,
+    color varchar (25) NOT NULL,
+    location varchar(25) check (location in ('north', 'south', 'west', 'east', 'northeast', 'southeast', 'southwest', 'northwest')),
+    install_date date
+);
+
+#DB CREATE
+CREATE TABLE
+
+\d
+\dt
+
+#Adding, Querying, and Deleting Data in a Table
+INSERT INTO playground (type, color, location, install_date) VALUES ('slide', 'blue', 'south', '2017-04-28');
+INSERT INTO playground (type, color, location, install_date) VALUES ('swing', 'yellow', 'northwest', '2018-08-16');
+
+SELECT * FROM playground;
+
+---------------------------------
+createuser -dP blog
+123456789
+createdb -E utf8 -U blog blog
+
+DATABASES = {
+'default': {
+'ENGINE': 'django.db.backends.postgresql',
+'NAME': 'blog',
+'USER': 'blog',
+'PASSWORD': '*****',
+}
+
+
+"""
