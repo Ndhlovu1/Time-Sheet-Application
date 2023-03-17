@@ -1,6 +1,4 @@
-# Capricorn Hackathon - Notes
-https://getbootstrap.com/docs/5.2/components/carousel/
-https://getbootstrap.com/docs/5.2/examples/carousel/
+# Capricorn Hackathon - Notes https://getbootstrap.com/docs/5.2/components/carousel/ https://getbootstrap.com/docs/5.2/examples/carousel/
 
 Download and edit the template,
 Download Capricorn Group Logos
@@ -33,6 +31,15 @@ GitHub Pull Requests and Issues
 Github CodeSpaces
 
 Install Git
-
 _______________________________________
 ```
+# The Blog Application
+
+```shell
+~$ pipenv install taggit
+
+```
+
+
+
+
