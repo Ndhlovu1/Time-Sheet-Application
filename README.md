@@ -3,7 +3,7 @@
 ## Create a single page web app
 
 ```shell
-~$ pipenv install taggit
+~ pipenv install taggit
 
 ```
 
